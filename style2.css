@@ -12,11 +12,6 @@ body {
     line-height: 1.5;
 }
 
-#body2 {
-    background-color: #43080f;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-}
-
 /* HEADER */
 header {
     background-color: #43080f;
@@ -110,7 +105,6 @@ header {
     background-color: rgba(255, 255, 255, 0.1);
     margin: 2rem auto 5rem auto;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(255,255,255,0.2);
     padding: 2.5rem 2rem;
     color: white;
 }
@@ -121,11 +115,11 @@ header {
 }
 
 #img_cadastro img {
-    width: 80px;
-    height: 80px;
+    width: 180px;
+    height: 180px;
     object-fit: contain;
     margin-bottom: 1rem;
-    filter: drop-shadow(0 0 3px white);
+    filter: drop-shadow(0 0 3px rgb(0, 0, 0));
 }
 
 #img_cadastro h2 {
@@ -159,7 +153,6 @@ header {
 #form_cadastro input:focus {
     outline: none;
     background-color: rgba(255,255,255,0.3);
-    box-shadow: 0 0 8px #fff;
 }
 
 /* Botão cadastro */
@@ -179,7 +172,6 @@ header {
 #form_cadastro button:hover {
     background-color: #6f0c17;
     color: white;
-    box-shadow: 0 0 10px white;
 }
 
 /* FOOTER */
