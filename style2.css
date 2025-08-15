@@ -12,6 +12,11 @@ body {
     line-height: 1.5;
 }
 
+#body2 {
+    background-color: #43080f;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
 /* HEADER */
 header {
     background-color: #43080f;
@@ -96,64 +101,85 @@ header {
     padding: 2rem 1rem;
     padding-top: 4rem;
     font-size: 2.5rem;
+    color: white;
 }
 
-.content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
+/* Cadastro container */
+#cadastro-container {
+    max-width: 400px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem auto 5rem auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    padding: 2.5rem 2rem;
+    color: white;
 }
 
-.post {
-    border: 2px solid white;
-    padding: 1.5rem;
-    border-radius: 10px;
+#img_cadastro {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-.post-img {
-    width: 100%;
-    border-radius: 10px;
-    object-fit: cover;
+#img_cadastro img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 3px white);
 }
 
-.post-title {
-    margin-top: 1rem;
-    border-bottom: 1px solid white;
-    padding-bottom: 0.5rem;
+#img_cadastro h2 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(255,255,255,0.5);
 }
 
-.post-date {
-    color: rgb(200, 200, 200);
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
+/* Formulário de cadastro */
+#form_cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
 }
 
-/* COMMENTS */
-.comments {
-    border: 1px solid white;
-    padding: 1.5rem;
-    border-radius: 10px;
+#form_cadastro input {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.comment {
-    border-top: 1px solid rgba(255,255,255,0.3);
-    padding-top: 1rem;
-    margin-top: 1rem;
+#form_cadastro input::placeholder {
+    color: #eee;
 }
 
-.comment-user {
+#form_cadastro input:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.3);
+    box-shadow: 0 0 8px #fff;
+}
+
+/* Botão cadastro */
+#form_cadastro button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #43080f;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
     font-size: 1.1rem;
-    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.comment-date {
-    font-size: 0.8rem;
-    color: rgb(200,200,200);
-}
-
-.comment-text {
-    margin-top: 0.5rem;
+#form_cadastro button:hover {
+    background-color: #6f0c17;
+    color: white;
+    box-shadow: 0 0 10px white;
 }
 
 /* FOOTER */
@@ -168,27 +194,19 @@ footer {
 
 /* RESPONSIVIDADE */
 @media (max-width: 768px) {
-    .content {
-        grid-template-columns: 1fr;
-    }
     .navbar {
         flex-direction: column;
         align-items: flex-start;
     }
+
     .search-bar {
         max-width: 100%;
         width: 100%;
     }
-}
 
-#form_cadastro{
-    display: flex;
-    justify-content: center;
-    margin: 4rem;
-    padding: 2rem;
-    border: 1px solid white;
-}
-
-#form_cadastro input {
-    padding: 1rem;
+    #cadastro-container {
+        margin: 2rem 1rem 4rem 1rem;
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
 }
