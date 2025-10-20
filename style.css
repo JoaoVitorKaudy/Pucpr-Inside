@@ -1,0 +1,853 @@
+/*ESTILIZACOES GERAIS*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto", sans-serif;
+}
+
+body {
+    background-color: #6f0c17;
+    color: white; 
+    line-height: 1.5;
+}
+
+/*CABECALHO*/
+header {
+    background-color: #43080f; 
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem 4rem;
+    color: white;
+    /*Essa parte foi pega do site Hero Patterns*/
+    background-image: url("data:image/svg+xml,%3Csvg width='64' height='64' viewBox='0 0 64 64' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M8 16c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm33.414-6l5.95-5.95L45.95.636 40 6.586 34.05.636 32.636 2.05 38.586 8l-5.95 5.95 1.414 1.414L40 9.414l5.95 5.95 1.414-1.414L41.414 8zM40 48c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8zm0-2c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zM9.414 40l5.95-5.95-1.414-1.414L8 38.586l-5.95-5.95L.636 34.05 6.586 40l-5.95 5.95 1.414 1.414L8 41.414l5.95 5.95 1.414-1.414L9.414 40z' fill='%23ffffff' fill-opacity='0.4' fill-rule='evenodd'/%3E%3C/svg%3E");
+
+    /*Animação adicionada*/
+    animation: moveBackground 5s linear infinite;
+}
+
+@keyframes moveBackground {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 64px 64px;
+  }
+}
+/*FIM DO CABECALHO*/
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.logo_maneira {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo_maneira img {
+    width: 2.5rem;
+}
+
+.logo_maneira h2 {
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(255,255,255,0.4);
+}
+
+.botoes_maneiros {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.botao {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    display: inline-block;
+    border: 2px solid white;
+    font-weight: bold;
+}
+
+.botao:hover {
+    background-color: #43080f;
+    color: white;
+    border: 2px solid white;
+}
+
+.botao_outline {
+    border: 2px solid white;
+    color: white;
+    background-color: #43080f;
+}
+
+.botao_outline:hover {
+    background-color: white;
+    color: black;
+}
+
+/* BOTOES PAINEL.PHP */
+.botao_perfil {
+    background-color: #004a8d; 
+    color: white;
+    border: 2px solid #004a8d;
+}
+
+.botao_perfil:hover {
+    background-color: #0062b8; 
+    border: 2px solid #0062b8;
+}
+
+.botao_postar {
+    background-color: #28a745;
+    color: white;
+    border: 2px solid #28a745;
+}
+
+.botao_postar:hover {
+    background-color: #218838; 
+    border: 2px solid #218838;
+}
+
+.botao_feed {
+    background-color: #d1d405;
+    color: white;
+    border: 2px solid #a7a528;
+}
+
+.botao_feed:hover {
+    background-color: #cfd300; 
+    border: 2px solid #d6c800;
+}
+/* FIM DOS BOTOES*/
+
+/*PARTE PRINCIPAL*/
+.titulo_principal {
+    text-align: center;
+    padding: 2rem 1rem;
+    padding-top: 4rem;
+    font-size: 2.5rem;
+    color: white; 
+}
+
+.conteudo {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.post {
+    border: 2px solid rgba(255, 255, 255, 0.2); 
+    padding: 1.5rem;
+    border-radius: 10px;
+}
+
+.post-img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.post-titulo {
+    margin-top: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 0.5rem;
+}
+
+.post-data {
+    color: rgba(255, 255, 255, 0.897);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+.comentarios {
+    border: 1px solid rgba(255, 255, 255, 0.2); 
+    padding: 1.5rem;
+    border-radius: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.comentario {
+    border-top: 1px solid rgba(255,255,255,0.3);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.comentario-user {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.comentario-data {
+    font-size: 0.8rem;
+    color: rgb(200,200,200);
+}
+
+.comentario-texto {
+    margin-top: 0.5rem;
+}
+
+/*FIM INDEX*/
+/*COMECO CADASTRO e ENTRAR*/
+
+#cadastro-container {
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 2rem auto 5rem auto;
+    border-radius: 12px;
+    padding: 2.5rem 2rem;
+    color: white;
+}
+
+#img_cadastro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#img_cadastro img {
+    width: 180px;
+    height: 180px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    filter: drop-shadow(0 0 3px rgb(0, 0, 0));
+}
+
+#img_cadastro h2 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 5px rgba(255,255,255,0.5);
+}
+
+#form_login {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#form_login input {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#form_login input::placeholder {
+    color: #eee;
+}
+
+#form_login input:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#form_login button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #43080f; 
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#form_login button:hover {
+    background-color: #ff0d29;
+    color: white;
+}
+
+#form_cadastro {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+#form_cadastro input {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#form_cadastro input::placeholder {
+    color: #eee;
+}
+
+#form_cadastro input:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#form_cadastro button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: white;
+    color: #43080f; 
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#form_cadastro button:hover {
+    background-color: #ff0d29;
+    color: white;
+}
+
+/*MENSAGEM DE SUCESSO OU ERRO DO CADASTRO*/
+.mensagem {
+    padding: 15px;
+    margin-top: 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-align: center;
+    color: white; 
+}
+
+.sucesso {
+    background-color: #28a745;
+}
+
+.erro {
+    background-color: #dc3545;
+}
+
+/*FIM CADASTRO e ENTRAR*/
+
+/*RODAPE*/
+footer {
+    background-color: #43080f;
+    text-align: center;
+    padding: 1.5rem;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    color: rgb(200,200,200);
+}
+
+/*CSS PERFIL*/
+
+.titulo_charmoso {
+    text-align: center;
+}
+
+.foto_perfil {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+.botao_atualizar {
+    margin-top: 1.5rem;
+}
+
+.informacion {
+    font-size: 1.5rem;
+}
+
+/*RESPONSIVIDADE (ou seja, tamanho pro celular :D)*/
+@media (max-width: 768px) {
+    .content {
+        grid-template-columns: 1fr;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .search-bar {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #cadastro-container {
+        margin: 2rem 1rem 4rem 1rem;
+        padding: 2rem 1.5rem;
+        max-width: 100%;
+    }
+}
+
+/* ESTILOS PARA O FORMULÁRIO DE POSTAGEM */
+
+#form_postagem {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.5rem;
+}
+
+#form_postagem label {
+    font-weight: bold;
+    margin-bottom: -0.5rem; /* Aproxima o label do campo */
+    color: white;
+}
+
+#form_postagem textarea, #form_postagem input[type="file"] {
+    padding: 1rem;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background-color: rgba(255,255,255,0.15);
+    color: white;
+    font-family: "Roboto", sans-serif; /* Garante a mesma fonte */
+    transition: background-color 0.3s ease;
+}
+
+#form_postagem textarea:focus {
+    outline: none;
+    background-color: rgba(255,255,255,0.3);
+}
+
+#form_postagem button {
+    padding: 1rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #28a745; /* Cor do botão de postar */
+    color: white; 
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+#form_postagem button:hover {
+    background-color: #218838; /* Cor mais escura no hover */
+}
+
+/* --- ESTILOS DO FEED --- */
+
+.feed-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.feed-container h1 {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+/* Estilo de cada postagem */
+.post {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    margin-bottom: 2.5rem;
+    padding: 1.5rem;
+}
+
+#cabecalho-post {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding: 2rem 4rem;
+    color: white;
+    /*Essa parte foi pega do site Hero Patterns*/
+    background-color: #43080f;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    animation: none;
+}
+
+.autor-foto {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.autor-nome {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: white;
+    background-color: black;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.post-data {
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.post-conteudo p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.post-media img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Seção de comentários */
+.comments-section {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.comment {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.no-comments {
+    font-style: italic;
+    color: #bbb;
+    font-size: 0.9rem;
+}
+
+.comment-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.comment-form textarea {
+    flex-grow: 1;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    resize: vertical;
+    min-height: 40px;
+}
+
+.comment-form button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #004a8d; /* Azul */
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.comment-form button:hover {
+    background-color: #0062b8;
+}
+
+/* ESTILO PARA O BOTÃO SAIR */
+.botao_sair {
+    background-color: #dc3545; /* Um tom de vermelho */
+    color: white;
+    border-color: #dc3545;
+}
+
+.botao_sair:hover {
+    background-color: #c82333; /* Vermelho mais escuro no hover */
+    border-color: #c82333;
+}
+
+/* ESTILO PARA A MENSAGEM DE LOGIN PARA COMENTAR */
+.comment-login-prompt {
+    background-color: rgba(0, 0, 0, 0.2);
+    text-align: center;
+    padding: 0.8rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.comment-login-prompt a {
+    color: white;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.comment-login-prompt a:hover {
+    text-decoration: none;
+}
+
+.post-footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    background-color: transparent;
+}
+
+.like-button {
+    background-color: #007bff; /* Azul */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.like-button:hover {
+    background-color: #0056b3;
+}
+
+.like-count {
+    font-size: 0.9rem;
+    color: #ddd;
+}
+
+.follow-button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8rem;
+    white-space: nowrap; /* Impede que o texto quebre em duas linhas */
+    transition: background-color 0.3s;
+}
+
+.follow-button:hover {
+    background-color: #218838;
+}
+
+/* Estilo alternativo para quando o botão for de "Deixar de Seguir" */
+.follow-button.unfollow {
+    background-color: #ec0800; /* Cinza */
+}
+
+.follow-button.unfollow:hover {
+    background-color: #9e0000;
+}
+
+/* --- ESTILOS DA PÁGINA DE PERFIL COM DUAS COLUNAS --- */
+
+.perfil-main-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas */
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.perfil-container {
+    flex: 2; /* Faz a coluna do perfil ocupar 2/3 do espaço */
+    min-width: 300px; /* Largura mínima */
+}
+
+.seguindo-container {
+    flex: 1; /* Faz a coluna "seguindo" ocupar 1/3 do espaço */
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+    border-radius: 12px;
+    min-width: 280px;
+    align-self: flex-start; /* Alinha no topo */
+}
+
+.seguindo-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.lista-seguindo {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 400px; /* Altura máxima com barra de rolagem */
+    overflow-y: auto;
+}
+
+.seguindo-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.8rem 0.5rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.seguindo-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.seguindo-item img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.seguindo-item span {
+    font-weight: bold;
+}
+
+/* --- ESTILOS PARA A PÁGINA VER_PERFIL.PHP --- */
+
+.seguindo-link {
+    text-decoration: none;
+    color: white;
+}
+
+.perfil-visitado-info {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 3rem;
+}
+
+.perfil-visitado-info img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+}
+
+.perfil-visitado-info h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+.perfil-visitado-info p {
+    margin: 0.3rem 0;
+    color: #eee;
+}
+
+.titulo-secao-posts {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.like-button.liked {
+    background-color: #ff4d6d;
+    color: white;
+}
+.like-button.liked:hover {
+    background-color: #c9184a;
+}
+
+.btn_deletar {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.2rem 0.6rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+.btn_deletar:hover { background-color: #ff0019; }
+.comment-delete {
+    float: right;
+    margin-left: 0.5rem;
+    padding: 0 0.5rem;
+}
+
+/*BOTA0 DELETAR PERFIL*/
+.zona_perigosa {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #ff0019;
+}
+.zona_perigosa h3 {
+    color: #ff0019;
+    background-color: rgb(0, 0, 0);
+    text-align: center;
+    border-radius: 15px;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+/*REPONSIVIDADE (CELULAR)*/
+@media (max-width: 768px) {
+
+    .cabecalho {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        padding: 1.5rem 1rem;
+    }
+
+    .botoes_maneiros {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .perfil-main-container {
+        flex-direction: column;
+        margin-top: 1rem;
+        padding: 0 0.5rem;
+    }
+
+    .seguindo-container {
+        align-self: stretch;
+    }
+
+    .feed-container,
+    #cadastro-container {
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .post-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .follow-button,
+    .delete-button {
+        align-self: flex-start;
+        font-size: 0.9rem;
+    }
+
+    .comment-form {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .comment-form button {
+        width: 100%;
+    }
+
+    .perfil-visitado-info {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem 1rem;
+    }
+
+    h1, .titulo_principal {
+        font-size: 1.8rem;
+    }
+
+    .logo_maneira h2 {
+        font-size: 1.3rem;
+    }
+}

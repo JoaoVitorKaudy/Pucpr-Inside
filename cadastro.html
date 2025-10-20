@@ -1,0 +1,79 @@
+<html lang="pt-BR">
+
+<!--CABEÇA-->
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUCPR Inside - CADASTRO</title>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+
+    <!--FONTE DO GOOGLE-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    
+    <!--ICONE-->
+    <link rel="shortcut icon" href="https://hotmilk.pucpr.br/inovacao-pucpr/wp-content/uploads/2022/09/simbolo-PUCPR-branco-sem-escrito.svg" type="image/x-icon">
+
+</head>
+
+<!--CORPO-->
+<body>
+
+    <!--CABECALHO-->
+    <header>
+
+        <nav class="cabecalho">
+
+            <!--LOGO-->
+            <div class="logo_maneira">
+                <img src="https://hotmilk.pucpr.br/inovacao-pucpr/wp-content/uploads/2022/09/simbolo-PUCPR-branco-sem-escrito.svg" alt="PUCPR Logo">
+                <h2>PUCPR Inside</h2>
+            </div>
+
+            <!--BOTOES DE ENTRAR E CADASTRAR-->
+            <div class="botoes_maneiros">
+                <a href="entrar.html" class="botao">ENTRAR</a>
+                <a href="index.php" class="botao botao_outline">VOLTAR</a>
+            </div>
+
+        </nav>
+
+    </header>
+
+    <!--PAGINA DE CADASTRO -->
+    <main>
+
+        <section id="cadastro-container">
+
+            <!--ENROLAÇÂO-->
+            <h1 class="titulo_principal">SEJA BEM-VINDO!</h1>
+
+            <div id="img_cadastro">
+                <img src="https://hotmilk.pucpr.br/inovacao-pucpr/wp-content/uploads/2022/09/simbolo-PUCPR-branco-sem-escrito.svg" alt="LOGO DA PUCPR">
+                <h2>CADASTRE-SE! É FACIL E RAPIDO</h2>
+            </div>
+
+            <!--FORMULARIO-->
+            <div id="mensagem-sucesso" style="display: none;"></div>
+            <form id="form_cadastro" action="api.php" method="post">
+                <input type="text" placeholder="Seu nome" name="nome" required>
+                <input type="email" placeholder="Seu email PUCPR" name="email" required>
+                <input type="password" placeholder="Sua senha" name="senha" required>
+                <button type="submit">Cadastrar</button>
+            </form>
+
+        </section>
+
+    </main>
+
+    <!--RODAPÉ-->
+    <footer>
+        <p>Todos os direitos reservados &copy; 2025</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
