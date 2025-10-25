@@ -38,6 +38,7 @@ $conn->close();
                 <h2>PUCPR Inside</h2>
             </div>
             <div class="botoes_maneiros">
+                <button id="theme-toggle" class="botao">Mudar Tema</button>
                 <a href="perfil.php" class="botao botao_perfil">MEU PERFIL</a>
                 <a href="postar.php" class="botao botao_postar">POSTAR</a>
                 <a href="sair.php" class="botao botao_sair">SAIR</a>
@@ -81,5 +82,6 @@ $conn->close();
             </div>
         </section>
     </main>
+    <script src="main.js"></script>
 </body>
 </html>

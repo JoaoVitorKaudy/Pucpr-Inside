@@ -26,6 +26,7 @@ if (!isset($_SESSION['usuario_id'])) {
                 <h2>PUCPR Inside</h2>
             </div>
             <div class="botoes_maneiros">
+                <button id="theme-toggle" class="botao">Mudar Tema</button>
                 <a href="feed.php" class="botao botao_feed">VOLTAR</a>
                 <a href="perfil.php" class="botao botao_perfil">MEU PERFIL</a>
                 <a href="sair.php" class="botao botao_sair">SAIR</a>
@@ -50,6 +51,6 @@ if (!isset($_SESSION['usuario_id'])) {
             </form>
         </section>
     </main>
-
+    <script src="main.js"></script>
 </body>
 </html>

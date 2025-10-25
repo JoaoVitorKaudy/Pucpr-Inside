@@ -42,6 +42,7 @@ $resultado_postagens = $conn->query($sql_postagens);
                 <h2>PUCPR Inside</h2>
             </div>
             <div class="botoes_maneiros">
+                <button id="theme-toggle" class="botao">Mudar Tema</button>
                 <a href="entrar.html" class="botao">ENTRAR</a>
                 <a href="cadastro.html" class="botao botao_outline">CADASTRAR</a>
             </div>
@@ -121,6 +122,6 @@ $resultado_postagens = $conn->query($sql_postagens);
     <footer>
         <p>Todos os direitos reservados &copy; 2025</p>
     </footer>
-
+    <script src="main.js"></script>
 </body>
 </html>

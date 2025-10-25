@@ -354,9 +354,12 @@ footer {
 }
 
 .foto_perfil {
-    max-width: 100%;
-    border-radius: 8px;
-    margin-top: 1rem;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .botao_atualizar {
@@ -385,6 +388,11 @@ footer {
         margin: 2rem 1rem 4rem 1rem;
         padding: 2rem 1.5rem;
         max-width: 100%;
+    }
+
+    .foto_perfil {
+        width: 120px;
+        height: 120px;
     }
 }
 
@@ -643,36 +651,6 @@ footer {
 
 /* --- ESTILOS DA PÁGINA DE PERFIL COM DUAS COLUNAS --- */
 
-.perfil-main-container {
-    display: flex;
-    flex-wrap: wrap; /* Permite que as colunas quebrem em telas pequenas */
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-}
-
-.perfil-container {
-    flex: 2; /* Faz a coluna do perfil ocupar 2/3 do espaço */
-    min-width: 300px; /* Largura mínima */
-}
-
-.seguindo-container {
-    flex: 1; /* Faz a coluna "seguindo" ocupar 1/3 do espaço */
-    background-color: rgba(0, 0, 0, 0.2);
-    padding: 1.5rem;
-    border-radius: 12px;
-    min-width: 280px;
-    align-self: flex-start; /* Alinha no topo */
-}
-
-.seguindo-container h2 {
-    text-align: center;
-    margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    padding-bottom: 0.5rem;
-}
-
 .lista-seguindo {
     list-style: none;
     padding: 0;
@@ -850,4 +828,315 @@ footer {
     .logo_maneira h2 {
         font-size: 1.3rem;
     }
+}
+
+.post-preview-link {
+    text-decoration: none;
+    color: white;
+    display: block;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.post-preview-link:hover .post {
+    transform: scale(1.01);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.ler-mais {
+    color: #00aaff;
+    font-weight: bold;
+}
+
+.comments-section-preview {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 1rem;
+    padding-top: 1rem;
+}
+
+.comment-preview {
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.ver-mais-comentarios {
+    text-align: center;
+    color: #bbb;
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+/* --- Página de Lista de Usuários (Seguidores/Seguindo) --- */
+.lista-usuarios-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 2rem;
+}
+
+.lista-usuarios-container h1 {
+    text-align: center;
+}
+.lista-usuarios-container > p {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #ccc;
+}
+
+.usuario-item-link {
+    text-decoration: none;
+    color: white;
+}
+
+.usuario-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+.usuario-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.usuario-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.usuario-info {
+    display: flex;
+    flex-direction: column;
+}
+.usuario-info span {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+/* --- Novos botões no Perfil --- */
+.perfil-container-centralizado {
+    margin: 2rem auto;
+}
+.perfil-botoes-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+.perfil-botoes-social .botao_outline {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+.perfil-botoes-social .botao_outline:hover {
+    background-color: white;
+    color: #43080f;
+}
+.perfil-botoes-social strong {
+    display: block; 
+    font-size: 1.2rem;
+}
+
+/* --- ESTILOS DO MODO CLARO (TEMA AZUL) --- */
+
+body.light-mode {
+    background-color: #3eafff;
+    color: #0d47a1; 
+}
+
+body.light-mode header,
+body.light-mode footer {
+    background-color: #068fff;
+    color: #1a237e; 
+    border-bottom: 1px solid #90caf9; 
+}
+
+body.light-mode .logo_maneira h2 {
+    color: #1a237e;
+    text-shadow: none;
+}
+
+body.light-mode .post,
+body.light-mode #cadastro-container,
+body.light-mode .lista-usuarios-container,
+body.light-mode .perfil-visitado-info {
+    background-color: #ffffff; 
+    border: 1px solid #90caf9; 
+    color: #212121; 
+}
+
+body.light-mode .post-preview-link {
+    color: #212121; 
+}
+
+body.light-mode .comment,
+body.light-mode .comment-preview {
+    background-color: #e3f2fd;
+}
+
+body.light-mode .comment-form textarea,
+body.light-mode #form_postagem textarea,
+body.light-mode #form_login input,
+body.light-mode #form_cadastro input {
+    background-color: #ffffff; 
+    color: #212121; 
+    border: 1px solid #90caf9; 
+}
+
+body.light-mode .comment-form textarea::placeholder,
+body.light-mode #form_postagem textarea::placeholder,
+body.light-mode input::placeholder {
+    color: #64b5f6; 
+}
+
+body.light-mode .ver-mais-comentarios,
+body.light-mode .no-comments {
+    color: #64b5f6; 
+}
+
+body.light-mode .seguindo-item:hover,
+body.light-mode .usuario-item:hover {
+    background-color: #e3f2fd; 
+}
+
+body.light-mode .botao {
+    background-color: #bbdefb; 
+    color: #1a237e; 
+    border: 2px solid #bbdefb;
+}
+
+body.light-mode .botao:hover {
+    background-color: #90caf9; 
+    color: #1a237e;
+    border: 2px solid #90caf9;
+}
+
+body.light-mode .botao_outline {
+    border: 2px solid #1a237e; 
+    color: #1a237e; 
+    background-color: transparent;
+}
+
+body.light-mode .botao_outline:hover {
+    background-color: #1a237e; 
+    color: #bbdefb; 
+}
+
+body.light-mode #theme-toggle {
+    background-color: #42a5f5; 
+    color: white;
+    border: 2px solid #42a5f5;
+}
+body.light-mode #theme-toggle:hover {
+    background-color: #2196f3;
+    border: 2px solid #2196f3;
+}
+
+body.light-mode .botao_perfil,
+body.light-mode .comment-form button {
+    background-color: #1976d2; 
+    border-color: #1976d2;
+    color: white;
+}
+body.light-mode .botao_perfil:hover,
+body.light-mode .comment-form button:hover {
+    background-color: #1565c0;
+    border-color: #1565c0;
+}
+
+body.light-mode .botao_postar {
+    background-color: #4caf50; 
+    border-color: #4caf50;
+    color: white;
+}
+body.light-mode .botao_postar:hover {
+    background-color: #43a047;
+    border-color: #43a047;
+}
+
+body.light-mode .botao_feed {
+    background-color: #ffeb3b; 
+    border-color: #ffeb3b;
+    color: #212121; 
+}
+body.light-mode .botao_feed:hover {
+    background-color: #fdd835;
+    border-color: #fdd835;
+}
+
+body.light-mode .botao_sair {
+    background-color: #ef5350; 
+    border-color: #ef5350;
+    color: white;
+}
+body.light-mode .botao_sair:hover {
+    background-color: #e53935;
+    border-color: #e53935;
+}
+
+body.light-mode .like-button {
+    background-color: #2196f3; 
+    color: white;
+}
+body.light-mode .like-button:hover {
+    background-color: #1976d2;
+}
+body.light-mode .like-button.liked {
+    background-color: #e91e63; 
+}
+body.light-mode .like-button.liked:hover {
+    background-color: #c2185b;
+}
+
+body.light-mode .follow-button {
+    background-color: #4caf50; 
+}
+body.light-mode .follow-button:hover {
+    background-color: #43a047;
+}
+body.light-mode .follow-button.unfollow {
+    background-color: #9e9e9e; 
+}
+body.light-mode .follow-button.unfollow:hover {
+    background-color: #757575;
+}
+
+body.light-mode .delete-button,
+body.light-mode .comment-delete {
+    background-color: #f44336;
+    color: white;
+}
+body.light-mode .delete-button:hover,
+body.light-mode .comment-delete:hover {
+    background-color: #d32f2f;
+}
+
+body.light-mode .zona_perigosa h3 {
+    color: #f44336; 
+    background-color: #ffffff;
+}
+
+body.light-mode .ler-mais {
+    color: #1976d2; 
+}
+
+body.light-mode #cabecalho-post{
+        background-color: #068fff;
+}
+
+body.light-mode .titulo_principal{
+        color: #068fff;
+}
+
+body.light-mode #form_login input{
+    color: #004a8d;
+}
+
+body.light-mode #form_login button:hover {
+    background-color: #004a8d;
 }

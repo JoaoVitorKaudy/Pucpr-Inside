@@ -1,19 +1,17 @@
 <?php
-// Inicia a sessão
 session_start();
 
-// Se o usuário não estiver logado, redireciona para a página de login
 if (!isset($_SESSION['usuario_id'])) {
     header('Location: entrar.html');
     exit();
 }
 
-    // CRIA A CONEXAO COM O BANCO DE DADOS
-    // $conn = mysqli_connect("localhost:3306", "root", "PUC@1234", "puc_inside");
-    $conn = mysqli_connect("localhost:3307", "root", "", "puc_inside");
+$servidor = "localhost"; $usuario_db = "root"; $senha_db = ""; $banco = "puc_inside";
+$conn = mysqli_connect($servidor, $usuario_db, $senha_db, $banco);
 
-// --- 1. Busca os dados principais do usuário logado ---
 $id_usuario_logado = $_SESSION['usuario_id'];
+
+// 1. Busca os dados do perfil
 $stmt_usuario = $conn->prepare("SELECT nome, email, tipo, curso, foto_perfil, data_cadastro FROM usuario WHERE id = ?");
 $stmt_usuario->bind_param("i", $id_usuario_logado);
 $stmt_usuario->execute();
@@ -21,16 +19,21 @@ $resultado_usuario = $stmt_usuario->get_result();
 $usuario = $resultado_usuario->fetch_assoc();
 $stmt_usuario->close();
 
-// --- 2. Busca a lista de usuários que a pessoa logada segue ---
-$stmt_seguindo = $conn->prepare("SELECT u.id, u.nome, u.foto_perfil 
-                                 FROM seguidor AS s
-                                 JOIN usuario AS u ON s.id_seguido = u.id
-                                 WHERE s.id_seguidor = ?");
+// 2. Conta quantos o usuário SEGUE
+$stmt_seguindo = $conn->prepare("SELECT COUNT(*) AS total FROM seguidor WHERE id_seguidor = ?");
 $stmt_seguindo->bind_param("i", $id_usuario_logado);
 $stmt_seguindo->execute();
-$resultado_seguindo = $stmt_seguindo->get_result();
+$total_seguindo = $stmt_seguindo->get_result()->fetch_assoc()['total'];
+$stmt_seguindo->close();
 
-// Não fechamos a conexão ainda, pois usamos ela no HTML
+// 3. Conta quantos SEGUIDORES o usuário tem
+$stmt_seguidores = $conn->prepare("SELECT COUNT(*) AS total FROM seguidor WHERE id_seguido = ?");
+$stmt_seguidores->bind_param("i", $id_usuario_logado);
+$stmt_seguidores->execute();
+$total_seguidores = $stmt_seguidores->get_result()->fetch_assoc()['total'];
+$stmt_seguidores->close();
+
+$conn->close();
 ?>
 <html lang="pt-BR">
 <head>
@@ -38,17 +41,15 @@ $resultado_seguindo = $stmt_seguindo->get_result();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PUCPR Inside - PERFIL</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!--ICONE-->
     <link rel="shortcut icon" href="https://hotmilk.pucpr.br/inovacao-pucpr/wp-content/uploads/2022/09/simbolo-PUCPR-branco-sem-escrito.svg" type="image/x-icon">
-</head>
+    </head>
 <body>
     <header>
         <nav class="cabecalho">
-            <div class="logo_maneira">
-                <img src="https://hotmilk.pucpr.br/inovacao-pucpr/wp-content/uploads/2022/09/simbolo-PUCPR-branco-sem-escrito.svg" alt="PUCPR Logo">
-                <h2>PUCPR Inside</h2>
-            </div>
+            <div class="logo_maneira">...</div>
             <div class="botoes_maneiros">
+                <button id="theme-toggle" class="botao">Mudar Tema</button>
                 <a href="feed.php" class="botao botao_feed">FEED</a>
                 <a href="postar.php" class="botao botao_postar">POSTAR</a>
                 <a href="sair.php" class="botao botao_sair">SAIR</a>
@@ -56,8 +57,8 @@ $resultado_seguindo = $stmt_seguindo->get_result();
         </nav>
     </header>
 
-    <main class="perfil-main-container">
-        <section id="cadastro-container" class="perfil-container">
+    <main>
+        <section id="cadastro-container" class="perfil-container-centralizado">
             <h1 class="titulo_charmoso">Perfil de <?php echo htmlspecialchars($usuario['nome']); ?></h1>
 
             <div class="perfil-foto">
@@ -66,6 +67,15 @@ $resultado_seguindo = $stmt_seguindo->get_result();
                 <?php else: ?>
                     <img src="imagens/avatar_padrao.png" class="foto_perfil" alt="Foto de Perfil Padrão">
                 <?php endif; ?>
+            </div>
+
+            <div class="perfil-botoes-social">
+                <a href="lista_seguidores.php?id=<?php echo $id_usuario_logado; ?>" class="botao botao_outline">
+                    <strong><?php echo $total_seguidores; ?></strong> Seguidores
+                </a>
+                <a href="lista_seguindo.php?id=<?php echo $id_usuario_logado; ?>" class="botao botao_outline">
+                    <strong><?php echo $total_seguindo; ?></strong> Seguindo
+                </a>
             </div>
 
             <div class="perfil-dados">
@@ -78,30 +88,7 @@ $resultado_seguindo = $stmt_seguindo->get_result();
 
             <a href="atualizar_perfil.php" class="botao botao_atualizar">Atualizar Dados</a>
         </section>
-
-        <aside class="seguindo-container">
-            <h2>Seguindo</h2>
-            
-            <?php if ($resultado_seguindo->num_rows > 0): ?>
-                <ul class="lista-seguindo">
-                    <?php while($seguindo = $resultado_seguindo->fetch_assoc()): ?>
-                        <a href="ver_perfil.php?id=<?php echo $seguindo['id']; ?>" class="seguindo-link">
-                            <li class="seguindo-item">
-                                <img src="<?php echo !empty($seguindo['foto_perfil']) ? 'uploads/' . htmlspecialchars($seguindo['foto_perfil']) : 'imagens/avatar_padrao.png'; ?>" alt="Foto de <?php echo htmlspecialchars($seguindo['nome']); ?>">
-                                <span><?php echo htmlspecialchars($seguindo['nome']); ?></span>
-                            </li>
-                        </a>
-                    <?php endwhile; ?>
-                </ul>
-            <?php else: ?>
-                <p>Você ainda não segue ninguém.</p>
-            <?php endif; ?>
-        </aside>
-
     </main>
-    <?php
-        $stmt_seguindo->close();
-        $conn->close();
-    ?>
+    <script src="main.js"></script>
 </body>
 </html>

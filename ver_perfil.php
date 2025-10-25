@@ -55,6 +55,7 @@ $resultado_postagens = $stmt_postagens->get_result();
         <nav class="cabecalho">
             <div class="logo_maneira">...</div>
             <div class="botoes_maneiros">
+                <button id="theme-toggle" class="botao">Mudar Tema</button>
                 <a href="feed.php" class="botao botao_feed">FEED</a>
                 <a href="perfil.php" class="botao botao_perfil">MEU PERFIL</a>
                 <a href="sair.php" class="botao botao_sair">SAIR</a>
@@ -97,5 +98,6 @@ $resultado_postagens = $stmt_postagens->get_result();
         $conn->close();
         ?>
     </main>
+    <script src="main.js"></script>
 </body>
 </html>
